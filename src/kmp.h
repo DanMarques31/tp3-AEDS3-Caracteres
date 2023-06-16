@@ -2,6 +2,6 @@
 #define KMP_H
 
 int *calculaLPS(char *padrao);
-int verificar_padrao(char *padrao, char *pedra);
+int verificar_padrao_kmp(char *padrao, char *pedra);
 
 #endif

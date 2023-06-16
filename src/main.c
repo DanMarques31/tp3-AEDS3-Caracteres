@@ -3,6 +3,7 @@
 #include "file.h"
 #include "forcabruta.h"
 #include "kmp.h"
+#include "bmh.h"
 
 int main(int argc, char *argv[]) {
 
@@ -19,7 +20,7 @@ int main(int argc, char *argv[]) {
     int casos_teste;
     fscanf(entrada, "%d", &casos_teste);
 
-    //Executa a 1ª estratégia, o algoritmo de casamento força bruta.
+    // Executa a 1ª estratégia, o algoritmo de casamento força bruta.
     if (atoi(argv[2]) == 1) {
 
         // Itera sobre cada casos teste.
@@ -54,7 +55,7 @@ int main(int argc, char *argv[]) {
             fscanf(entrada, "%s %s", padrao, pedra);
 
             // Verifica se há um casamento na pedra.
-            int posicao = verificar_padrao(padrao, pedra);
+            int posicao = verificar_padrao_kmp(padrao, pedra);
 
             // Imprime o resultado.
             if (posicao != -1) {
@@ -72,5 +73,37 @@ int main(int argc, char *argv[]) {
         }
 
         return 0;
-    }    
+    }
+
+    // Executa a 3ª estratégia, o algoritmo de casamento BMH - Boyer-Moore-Horspool.
+    if (atoi(argv[2]) == 3) {
+
+        // Itera sobre cada casos teste.
+        for (int i = 0; i < casos_teste; i++) {
+
+            // Aloca memória do padrão e da pedra e obtém as strings do arquivo.
+            char* padrao = (char*)malloc(sizeof(char) * 100);
+            char* pedra = (char*)malloc(sizeof(char) * 1000);
+            fscanf(entrada, "%s %s", padrao, pedra);
+
+            // Verifica se há um casamento na pedra.
+            int posicao = verificar_padrao_bmh(padrao, pedra);
+
+            // Imprime o resultado.
+            if (posicao != -1) {
+                fprintf(saida, "S %d\n", posicao + 1);
+            }
+
+            // Imprime caso não haja casamento.
+            else {
+                fprintf(saida, "N\n");
+            }
+
+            // Libera a memória do padrão e da pedra.
+            free(padrao);
+            free(pedra);
+        }
+
+        return 0;    
+    }
 }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "kmp.h"
 
 // Função para calcular o array LPS, usado para que o algoritmo KMP não tenha que realizar comparações desnecessarias
 // Essa funçaõ torna o algoritmo mais eficiente, mas não é necessaria para o funcionamento do algoritmo 
@@ -81,7 +82,7 @@ int kmp(char *texto, char *padrao) {
 }
 
 // Função para verificar a sequência no texto e no padrão
-int verificar_padrao(char *padrao, char *pedra) {
+int verificar_padrao_kmp(char *padrao, char *pedra) {
 
     int tam_pedra = strlen(pedra);
 
