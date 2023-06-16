@@ -15,20 +15,25 @@ int main(int argc, char *argv[]) {
     //Abre o arquivo.
     abre_arquivo(argv[1]);
 
+    // Cria a variável que armazena a quantidade de testes e lê ela do arquivo.
     int casos_teste;
     fscanf(entrada, "%d", &casos_teste);
 
     //Executa a 1ª estratégia, o algoritmo de casamento força bruta.
     if (atoi(argv[2]) == 1) {
 
+        // Itera sobre cada casos teste.
         for (int i = 0; i < casos_teste; i++) {
-
+            
+            // Aloca memória para o padrão e para a pedra.
             char *padrao = (char *)malloc(sizeof(char) * 100);
             char *pedra = (char *)malloc(sizeof(char) * 1000);
 
+            // Obtém as strings de padrão e pedra do arquivo e faz a chamada da função do algoritmo força bruta.
             fscanf(entrada, "%s %s", padrao, pedra);
             forca_bruta(padrao, pedra, saida);
 
+            // Libera a memória do padrão e da pedra.
             free(padrao);
             free(pedra);
         }
@@ -39,25 +44,29 @@ int main(int argc, char *argv[]) {
 
     //Executa a 2ª estratégia, o algoritmo de casamento KMP - Knuth Morris Prath.
     if (atoi(argv[2]) == 2) {
-    
+        
+        // Itera sobre cada casos teste.
         for (int i = 0; i < casos_teste; i++) {
 
+            // Aloca memória do padrão e da pedra e obtém as strings do arquivo.
             char* padrao = (char*)malloc(sizeof(char) * 100);
             char* pedra = (char*)malloc(sizeof(char) * 1000);
             fscanf(entrada, "%s %s", padrao, pedra);
 
-            // Verifica se há uma sequência correspondente na pedra
+            // Verifica se há um casamento na pedra.
             int posicao = verificar_padrao(padrao, pedra);
 
-            // Imprime o resultado
+            // Imprime o resultado.
             if (posicao != -1) {
                 fprintf(saida, "S %ld\n", (posicao % strlen(pedra)) + 1);
             }
 
+            // Imprime caso não haja casamento.
             else {
                 fprintf(saida, "N\n");
             }
 
+            // Libera a memória do padrão e da pedra.
             free(padrao);
             free(pedra);
         }
