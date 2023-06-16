@@ -8,11 +8,11 @@ Comandos:
 make clean -	Apaga a última compilação realizada.
 make 	   -	Executa a compilação do programa utilizando o gcc.
 
-A compilação irá gerar um arquivo .exe com o nome tp2. Para execução basta fazer :
+A compilação irá gerar um arquivo .exe com o nome tp3. Para execução basta fazer :
 
-./tp2 <estratégia> nomedoarquivo.txt 
+./tp3 nomedoarquivo.txt <estratégia>
 
-Estratégia 1 = Irá executar o algoritmo de Programação Dinâmica.
-Estratégia 2 = Irá executar o algoritmo de solução Gulosa.
+Estratégia 1 = Irá executar o algoritmo de casamento Força Bruta.
+Estratégia 2 = Irá executar o algoritmo de casamento KMP.
 
 O programa irá gerar um arquivo saida.txt com as respostas de cada teste do arquivo de entradas.
