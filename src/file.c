@@ -4,17 +4,18 @@
 
 FILE *entrada, *saida;
 
-//Função para abertura do arquivo de entrada para leitura, e de saída para escrita.
+// Função para abertura do arquivo de entrada para leitura, e de saída para escrita.
 void abre_arquivo(char argv[]) {
 
-    char nomeArquivoSaida[100];
-    strcpy(nomeArquivoSaida, argv);
-    strcat(nomeArquivoSaida, ".out");
+    // Cria uma variável para armazenar o nome do arquivo de entrada dado, depois copia o nome para essa variável e concatena o '.out'.
+    char outputName[100];
+    strcpy(outputName, argv);
+    strcat(outputName, ".out");
 
     entrada = fopen(argv, "r");
-    saida = fopen(nomeArquivoSaida, "w");
+    saida = fopen(outputName, "w");
 
-    //Se o arquivo estiver vazio retorna erro.
+    // Se o arquivo de entrada estiver vazio retorna erro.
     if (entrada == NULL) {
         printf("Falha na abertura do arquivo.\n");
     }

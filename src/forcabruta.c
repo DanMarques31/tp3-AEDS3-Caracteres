@@ -5,7 +5,7 @@
 
 void forca_bruta(char *padrao, char *pedra, FILE *saida) {
 
-    // Armazena o tamanho da sequencia e da pedra.
+    // Armazena o tamanho do padrão e da pedra.
     int tam_padrao = strlen(padrao);
     int tam_pedra = strlen(pedra);
 
@@ -47,7 +47,7 @@ void forca_bruta(char *padrao, char *pedra, FILE *saida) {
         }
     }
 
-    // Sequência não encontrada
+    // Casamento não encontrado.
     fprintf(saida, "N\n");
 }
 

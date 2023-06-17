@@ -3,7 +3,7 @@
 #include <string.h>
 #include "bmh.h"
 
-// Função auxiliar para calcular o deslocamento maximo
+// Função auxiliar que verifica qual o maior para calcular o deslocamento máximo.
 int verifica_max(int a, int b) {
 
     if (a > b) {
@@ -13,12 +13,12 @@ int verifica_max(int a, int b) {
     return b;
 }
 
-// Função para construir a tabela de salto para o BMH
+// Função para construir a tabela de salto para o BMH.
 int* tabelaSalto(char* padrao, int tam_padrao) {
 
     int* tabela = (int*)malloc(sizeof(int) * 256);
 
-    // Inicializa a tabela com o tamanho do padrão
+    // Inicializa a tabela com o tamanho do padrão.
     for (int i = 0; i < 256; i++) {
         tabela[i] = tam_padrao;
     }
@@ -31,7 +31,7 @@ int* tabelaSalto(char* padrao, int tam_padrao) {
     return tabela;
 }
 
-// Função de busca utilizando o algoritmo BMH
+// Função de busca utilizando o algoritmo BMH.
 int bmh(char* texto, int tam_texto, char* padrao, int tam_padrao) {
 
     // Ponteiro para a tabela de saltos

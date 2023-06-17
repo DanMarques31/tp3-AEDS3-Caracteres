@@ -9,17 +9,17 @@
 
 int main(int argc, char *argv[]) {
 
-    //Cria a struct e a variável para o uso da função 'getrusage' .
+    // Cria a struct e a variável para o uso da função 'getrusage' .
     struct rusage usage;
     double user_time, system_time;
 
-    //Caso n° de argumentos no terminal seja < 3 significa que não foi passado arquivo de texto ou estratégia.
+    // Caso n° de argumentos no terminal seja < 3 significa que não foi passado arquivo de texto ou estratégia.
     if (argc < 3) {
         printf("Erro: Faltam argumentos no terminal.\n");
         return 1;
     }
 
-    //Abre o arquivo de entrada e saida.
+    // Abre o arquivo de entrada e saida.
     abre_arquivo(argv[1]);
 
     // Cria a variável que armazena a quantidade de testes e lê ela do arquivo.
@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    //Executa a 2ª estratégia, o algoritmo de casamento KMP - Knuth Morris Prath.
+    //Executa a 2ª estratégia, o algoritmo de casamento KMP - Knuth-Morris-Pratt.
     if (atoi(argv[2]) == 2) {
         
         // Itera sobre cada casos teste.
