@@ -21,7 +21,7 @@ void abre_arquivo(char argv[]) {
     }
 }
 
-//Função para o fechamento dos arquivos.
+// Função para o fechamento dos arquivos.
 void fecha_arquivo() {
     fclose(entrada);
     fclose(saida);
