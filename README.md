@@ -14,5 +14,6 @@ A compilação irá gerar um arquivo .exe com o nome tp3. Para execução basta 
 
 Estratégia 1 = Irá executar o algoritmo de casamento Força Bruta.
 Estratégia 2 = Irá executar o algoritmo de casamento KMP.
+Estratégia 3 = Irá executar o algoritmo de casamento BMH.
 
-O programa irá gerar um arquivo saida.txt com as respostas de cada teste do arquivo de entradas.
+O programa irá gerar um arquivo '<nomedaentrada>.txt.out' com as respostas de cada teste do arquivo de entradas.
