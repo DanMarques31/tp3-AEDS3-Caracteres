@@ -33,8 +33,8 @@ int main(int argc, char *argv[]) {
         for (int i = 0; i < casos_teste; i++) {
             
             // Aloca memória para o padrão e para a pedra.
-            char *padrao = (char *)malloc(sizeof(char) * 100);
-            char *pedra = (char *)malloc(sizeof(char) * 1000);
+            char *padrao = (char *)malloc(sizeof(char) * 101);
+            char *pedra = (char *)malloc(sizeof(char) * 10001);
 
             // Obtém as strings de padrão e pedra do arquivo e faz a chamada da função do algoritmo força bruta.
             fscanf(entrada, "%s %s", padrao, pedra);
@@ -53,8 +53,8 @@ int main(int argc, char *argv[]) {
         for (int i = 0; i < casos_teste; i++) {
 
             // Aloca memória do padrão e da pedra e obtém as strings do arquivo.
-            char* padrao = (char*)malloc(sizeof(char) * 100);
-            char* pedra = (char*)malloc(sizeof(char) * 1000);
+            char* padrao = (char*)malloc(sizeof(char) * 101);
+            char* pedra = (char*)malloc(sizeof(char) * 10001);
             fscanf(entrada, "%s %s", padrao, pedra);
 
             // Verifica se há um casamento na pedra.
@@ -83,8 +83,8 @@ int main(int argc, char *argv[]) {
         for (int i = 0; i < casos_teste; i++) {
 
             // Aloca memória do padrão e da pedra e obtém as strings do arquivo.
-            char* padrao = (char*)malloc(sizeof(char) * 100);
-            char* pedra = (char*)malloc(sizeof(char) * 1000);
+            char* padrao = (char*)malloc(sizeof(char) * 101);
+            char* pedra = (char*)malloc(sizeof(char) * 10001);
             fscanf(entrada, "%s %s", padrao, pedra);
 
             // Verifica se há um casamento na pedra.
