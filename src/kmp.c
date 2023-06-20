@@ -3,22 +3,22 @@
 #include <string.h>
 #include "kmp.h"
 
-// Função para calcular o array LPS, usado para que o algoritmo KMP não tenha que realizar comparações desnecessarias
+// Função para calcular o array tabSalto, usado para que o algoritmo KMP não tenha que realizar comparações desnecessarias
 // Essa funçaõ torna o algoritmo mais eficiente, mas não é necessaria para o funcionamento do algoritmo 
 int *tabela_salto(char *padrao) {
 
     int tam = strlen(padrao);
-    int *lps = (int *)malloc(sizeof(int) * tam);
+    int *tabSalto = (int *)malloc(sizeof(int) * tam);
     int i = 1;
     int j = 0;
-    lps[0] = 0;
+    tabSalto[0] = 0;
 
-    // Construindo o array LPS
+    // Construindo o array tabSalto
     while (i < tam) {
         // Verifica se i é igual a j
         if (padrao[i] == padrao[j]) {
             // Caso seja, encotrou-se uma correspondencia
-            lps[i] = j + 1;
+            tabSalto[i] = j + 1;
             // Incrementa i e j para as proximas posiçoes
             i++;
             j++;
@@ -28,17 +28,17 @@ int *tabela_salto(char *padrao) {
             // Não ha correspondencia 
             if (j != 0) {
                 // Retrocede o array para encontrar a proxima posição paar comparar
-                j = lps[j - 1];
+                j = tabSalto[j - 1];
             // Não a correspondencia nem no caso anterior
             } else {
-                lps[i] = 0;
+                tabSalto[i] = 0;
                 // Avança para os proximos caracteres do padrao
                 i++;
             }
         }
     }
 
-    return lps;
+    return tabSalto;
 }
 
 // Função para realizar a busca KMP
@@ -46,7 +46,7 @@ int kmp(char *texto, char *padrao) {
 
     int tam_texto = strlen(texto);
     int tam_padrao = strlen(padrao);
-    int *lps = tabela_salto(padrao);
+    int *tabSalto = tabela_salto(padrao);
     int i = 0;
     int j = 0;
 
@@ -60,15 +60,15 @@ int kmp(char *texto, char *padrao) {
 
         // Se o padrão for encontrado completamente, retorna a posição correspondente no texto
         if (j == tam_padrao) {
-            free(lps);
+            free(tabSalto);
             return i - j;
         }
 
-        // Caso haja uma diferença no caractere, atualiza o índice j usando o array LPS
+        // Caso haja uma diferença no caractere, atualiza o índice j usando o array tabSalto
         if (i < tam_texto && texto[i] != padrao[j]) {
 
             if (j != 0) {
-                j = lps[j - 1];
+                j = tabSalto[j - 1];
             }
             
             else {
@@ -77,7 +77,7 @@ int kmp(char *texto, char *padrao) {
         }
     }
 
-    free(lps);
+    free(tabSalto);
     return -1; // Retorna -1 se o padrão não for encontrado
 }
 
