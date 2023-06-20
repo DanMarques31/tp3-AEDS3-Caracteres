@@ -5,7 +5,7 @@
 
 // Função para calcular o array LPS, usado para que o algoritmo KMP não tenha que realizar comparações desnecessarias
 // Essa funçaõ torna o algoritmo mais eficiente, mas não é necessaria para o funcionamento do algoritmo 
-int *calculaLPS(char *padrao) {
+int *tabela_salto(char *padrao) {
 
     int tam = strlen(padrao);
     int *lps = (int *)malloc(sizeof(int) * tam);
@@ -46,7 +46,7 @@ int kmp(char *texto, char *padrao) {
 
     int tam_texto = strlen(texto);
     int tam_padrao = strlen(padrao);
-    int *lps = calculaLPS(padrao);
+    int *lps = tabela_salto(padrao);
     int i = 0;
     int j = 0;
 
