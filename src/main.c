@@ -106,14 +106,14 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    //Chamada da função 'getrusage'.
+    // Chamada da função 'getrusage'.
     getrusage(RUSAGE_SELF, &usage);
 
-    //Conversão dos tempos para segundos.
+    // Conversão dos tempos para segundos.
     user_time = (double) usage.ru_utime.tv_sec + (double) usage.ru_utime.tv_usec / 1000000.0;
     system_time = (double) usage.ru_stime.tv_sec + (double) usage.ru_stime.tv_usec / 1000000.0;
     
-    //Impressão dos tempos de execução.
+    // Impressão dos tempos de execução.
     printf("Tempo de usuário: %f segundos\n", user_time);
     printf("Tempo de sistema: %f segundos\n", system_time);
 
